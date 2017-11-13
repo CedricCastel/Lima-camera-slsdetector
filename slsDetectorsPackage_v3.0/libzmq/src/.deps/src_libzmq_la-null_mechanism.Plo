@@ -1,0 +1,489 @@
+src/src_libzmq_la-null_mechanism.lo: src/null_mechanism.cpp \
+ src/precompiled.hpp src/platform.hpp src/../include/zmq.h \
+ /usr/include/errno.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/features.h \
+ /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stddef.h \
+ /usr/include/stdio.h /usr/include/bits/types.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/wchar.h \
+ /usr/include/bits/wchar.h /usr/include/gconv.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/stdint.h src/zmq_draft.h \
+ /usr/include/string.h /usr/include/xlocale.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/sys/types.h /usr/include/time.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/bits/time.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h \
+ /usr/include/alloca.h src/err.hpp /usr/include/assert.h \
+ /usr/include/netdb.h /usr/include/netinet/in.h /usr/include/sys/socket.h \
+ /usr/include/sys/uio.h /usr/include/bits/uio.h \
+ /usr/include/bits/socket.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/limits.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/sockaddr.h /usr/include/asm/socket.h \
+ /usr/include/asm/sockios.h /usr/include/bits/in.h \
+ /usr/include/bits/byteswap.h /usr/include/rpc/netdb.h \
+ /usr/include/bits/siginfo.h /usr/include/bits/netdb.h src/likely.hpp \
+ src/msg.hpp src/config.hpp src/fd.hpp src/atomic_counter.hpp \
+ src/stdint.hpp src/metadata.hpp \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/map \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_tree.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_algobase.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++config.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/os_defines.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/cpu_defines.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cstddef \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/functexcept.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/exception_defines.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/cpp_type_traits.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/type_traits.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/numeric_traits.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_pair.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/move.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/concept_check.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator_base_types.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator_base_funcs.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/debug/debug.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/allocator.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++allocator.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/new_allocator.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/new \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/exception \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_function.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/backward/binders.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_map.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/initializer_list \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_multimap.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/string \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stringfwd.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/char_traits.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/postypes.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cwchar \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/localefwd.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++locale.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/clocale \
+ /usr/include/locale.h /usr/include/bits/locale.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/iosfwd \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cctype \
+ /usr/include/ctype.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/ostream_insert.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cxxabi-forced.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/basic_string.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/atomicity.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/gthr.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/signal.h \
+ /usr/include/bits/initspin.h /usr/include/bits/sigthread.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/getopt.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/atomic_word.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/basic_string.tcc \
+ src/session_base.hpp src/own.hpp \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/set \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_set.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_multiset.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/algorithm \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_algo.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cstdlib \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/algorithmfwd.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_heap.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_tempbuf.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_construct.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_uninitialized.h \
+ src/object.hpp src/options.hpp \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/vector \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_vector.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_bvector.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/vector.tcc \
+ src/tcp_address.hpp src/io_object.hpp src/poller.hpp src/epoll.hpp \
+ /usr/include/sys/epoll.h src/ctx.hpp src/mailbox.hpp src/signaler.hpp \
+ src/command.hpp src/ypipe.hpp src/atomic_ptr.hpp src/yqueue.hpp \
+ src/ypipe_base.hpp src/mutex.hpp src/i_mailbox.hpp src/array.hpp \
+ src/thread.hpp src/poller_base.hpp src/clock.hpp src/i_poll_events.hpp \
+ src/pipe.hpp src/blob.hpp src/socket_base.hpp src/stream_engine.hpp \
+ src/i_engine.hpp src/i_encoder.hpp src/i_decoder.hpp src/wire.hpp \
+ src/null_mechanism.hpp src/mechanism.hpp src/zap_client.hpp \
+ src/mechanism_base.hpp
+
+src/precompiled.hpp:
+
+src/platform.hpp:
+
+src/../include/zmq.h:
+
+/usr/include/errno.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stddef.h:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/wchar.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/gconv.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/stdint.h:
+
+src/zmq_draft.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/alloca.h:
+
+src/err.hpp:
+
+/usr/include/assert.h:
+
+/usr/include/netdb.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/sys/socket.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/bits/uio.h:
+
+/usr/include/bits/socket.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/limits.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/bits/sockaddr.h:
+
+/usr/include/asm/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/bits/in.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/bits/siginfo.h:
+
+/usr/include/bits/netdb.h:
+
+src/likely.hpp:
+
+src/msg.hpp:
+
+src/config.hpp:
+
+src/fd.hpp:
+
+src/atomic_counter.hpp:
+
+src/stdint.hpp:
+
+src/metadata.hpp:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/map:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_tree.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_algobase.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++config.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/os_defines.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/cpu_defines.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cstddef:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/functexcept.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/exception_defines.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/cpp_type_traits.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/type_traits.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/numeric_traits.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_pair.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/move.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/concept_check.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator_base_types.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator_base_funcs.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_iterator.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/debug/debug.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/allocator.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++allocator.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/new_allocator.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/new:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/exception:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_function.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/backward/binders.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_map.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/initializer_list:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_multimap.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/string:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stringfwd.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/char_traits.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/postypes.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cwchar:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/localefwd.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/c++locale.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/clocale:
+
+/usr/include/locale.h:
+
+/usr/include/bits/locale.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/iosfwd:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cctype:
+
+/usr/include/ctype.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/ostream_insert.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cxxabi-forced.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/basic_string.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/ext/atomicity.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/gthr.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/signal.h:
+
+/usr/include/bits/initspin.h:
+
+/usr/include/bits/sigthread.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/i686-pc-linux-gnu/bits/atomic_word.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/basic_string.tcc:
+
+src/session_base.hpp:
+
+src/own.hpp:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/set:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_set.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_multiset.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/algorithm:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_algo.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/cstdlib:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/algorithmfwd.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_heap.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_tempbuf.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_construct.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_uninitialized.h:
+
+src/object.hpp:
+
+src/options.hpp:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/vector:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_vector.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/stl_bvector.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/../../../../include/c++/4.4.2/bits/vector.tcc:
+
+src/tcp_address.hpp:
+
+src/io_object.hpp:
+
+src/poller.hpp:
+
+src/epoll.hpp:
+
+/usr/include/sys/epoll.h:
+
+src/ctx.hpp:
+
+src/mailbox.hpp:
+
+src/signaler.hpp:
+
+src/command.hpp:
+
+src/ypipe.hpp:
+
+src/atomic_ptr.hpp:
+
+src/yqueue.hpp:
+
+src/ypipe_base.hpp:
+
+src/mutex.hpp:
+
+src/i_mailbox.hpp:
+
+src/array.hpp:
+
+src/thread.hpp:
+
+src/poller_base.hpp:
+
+src/clock.hpp:
+
+src/i_poll_events.hpp:
+
+src/pipe.hpp:
+
+src/blob.hpp:
+
+src/socket_base.hpp:
+
+src/stream_engine.hpp:
+
+src/i_engine.hpp:
+
+src/i_encoder.hpp:
+
+src/i_decoder.hpp:
+
+src/wire.hpp:
+
+src/null_mechanism.hpp:
+
+src/mechanism.hpp:
+
+src/zap_client.hpp:
+
+src/mechanism_base.hpp:

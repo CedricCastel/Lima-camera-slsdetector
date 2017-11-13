@@ -1,0 +1,76 @@
+src/src_libzmq_la-tweetnacl.lo: src/tweetnacl.c src/platform.hpp \
+ src/tweetnacl.h /usr/include/unistd.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/features.h \
+ /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/types.h /usr/include/bits/wordsize.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stddef.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/confname.h \
+ /usr/include/getopt.h /usr/include/assert.h /usr/include/sys/types.h \
+ /usr/include/time.h /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h \
+ /usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h
+
+src/platform.hpp:
+
+src/tweetnacl.h:
+
+/usr/include/unistd.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include/stddef.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/assert.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/sched.h:
+
+/usr/Local/gcc/gcc-4.4.2/bin/../lib/gcc/i686-pc-linux-gnu/4.4.2/include-fixed/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/bits/fcntl.h:

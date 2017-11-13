@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>fr.soleil</groupId>
+        <artifactId>super-pom-C-CPP</artifactId>
+        <version>RELEASE</version>
+    </parent>
+
+    <groupId>fr.soleil.lib.Lima.Camera</groupId>
+    <artifactId>LimaSlsDetector-${aol}-shared-${mode}</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>nar</packaging>
+    <name>LimaSlsDetector</name>
+    <description>This module controls the Sls Detectors</description>
+    
+    <scm>
+        <connection>scm:git:git://github.com/soleil-ica/Lima-camera-slsdetector.git</connection>
+        <developerConnection>scm:git:git://github.com/soleil-ica/Lima-camera-slsdetector.git</developerConnection>
+        <url>https://github.com/soleil-ica/Lima-camera-slsdetector</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.soleil.lib</groupId>
+            <artifactId>LimaCore-${aol}-shared-${mode}</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.freehep</groupId>
+                <artifactId>freehep-nar-plugin</artifactId>
+                <configuration>
+                    <cpp>
+                        <sourceDirectory>src</sourceDirectory>
+                        <includePaths>
+                            <includePath>include</includePath>
+                            <includePath>include\slsDetectorSoftware\commonFiles</includePath>
+                            <includePath>include\slsDetectorSoftware\multiSlsDetector</includePath>
+                            <includePath>include\slsDetectorSoftware\slsDetector</includePath>
+                            <includePath>include\slsDetectorSoftware\slsDetectorAnalysis</includePath>
+                            <includePath>include\slsDetectorSoftware\slsReceiverInterface</includePath>
+                            <includePath>include\slsDetectorSoftware\threadFiles</includePath>
+							<includePath>include\slsReceiverSoftware</includePath>
+                        </includePaths>         
+                        <!-- define less verbose mode for gcc-->
+                        <options>
+                            <option>-w</option>
+                        </options>
+                        <defines>
+                            <!--<define>SIMULATOR</define>-->
+                        </defines>
+                    </cpp>
+					<linker>
+					<libs>
+						<lib>
+							<!-- libSlsDetector (1.0.0) 64 -->
+							<name>SlsDetector</name>
+							<type>shared</type>
+							<directory>./slsDetectorsPackage_v3.0/Web_slsDetectorsPackage_v3.0/bin/</directory>
+						</lib>
+						<lib>
+							<!-- libSlsReceiver (1.0.0) 64 -->
+							<name>SlsReceiver</name>
+							<type>shared</type>
+							<directory>./slsDetectorsPackage_v3.0/Web_slsDetectorsPackage_v3.0/bin/</directory>
+						</lib>
+					</libs>
+				   </linker>
+                    <libraries>
+                        <library>
+                            <type>shared</type>
+                        </library>
+                    </libraries>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>fr.soleil.maven.plugins</groupId>
+                <artifactId>maven-check-plugin</artifactId>
+                <configuration>
+                    <enable>false</enable>
+                </configuration>
+            </plugin>			
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <id></id>
+            <name></name>
+            <url>http://controle/</url>
+            <organization>Synchrotron Soleil</organization>
+            <organizationUrl>http://www.synchrotron-soleil.fr</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>1</timezone>
+        </developer>
+    </developers>
+
+</project>
