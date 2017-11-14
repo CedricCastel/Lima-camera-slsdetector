@@ -1,0 +1,9 @@
+Path: slsDetectorsPackage/calibrationWizards 
+URL: origin git@git.psi.ch:sls_detectors_software/calibration_wizards.git 
+Repository Root: origin git@git.psi.ch:sls_detectors_software/calibration_wizards.git 
+Repsitory UUID: d4e742b34eea59cf8bee3833239da7a85eb3029d 
+Revision: 27 
+Branch: master 
+Last Changed Author: Dhanya_Maliakal 
+Last Changed Rev: 27 
+Last Changed Date: 2017-07-27 12:16:44.000000002 +0200 ./enCalDict.h
