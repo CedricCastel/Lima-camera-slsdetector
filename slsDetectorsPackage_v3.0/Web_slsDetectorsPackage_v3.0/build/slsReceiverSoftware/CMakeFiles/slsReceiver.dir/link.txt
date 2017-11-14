@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/slsReceiver.dir/src/main.cpp.o  -o ../bin/slsReceiver -rdynamic ../bin/libSlsReceiver.so -lpthread ../../slsReceiverSoftware/include/libzmq.a -lrt -Wl,-rpath,/afs/psi.ch/project/sls_det_software/Web_slsDetectorsPackage_v3.0/build/bin 

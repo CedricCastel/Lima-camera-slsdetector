@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/gui_client.dir/client/qClient.cpp.o CMakeFiles/gui_client.dir/gui_client_automoc.cpp.o  -o ../bin/gui_client -rdynamic 
