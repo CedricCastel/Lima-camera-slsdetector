@@ -37,7 +37,7 @@ Eiger::CorrBase::CorrBase(Eiger *eiger)
 	: m_eiger(eiger)
 {
 	DEB_CONSTRUCTOR();
-	m_nb_modules = m_eiger->m_nb_det_modules / 2;
+	m_nb_eiger_modules = m_eiger->getNbEigerModules();
 }
 
 Eiger::CorrBase::~CorrBase()
@@ -45,15 +45,6 @@ Eiger::CorrBase::~CorrBase()
 	DEB_DESTRUCTOR();
 	if (m_eiger)
 		m_eiger->removeCorr(this);
-}
-
-bool Eiger::CorrBase::getRaw()
-{
-	DEB_MEMBER_FUNCT();
-	bool raw;
-	m_eiger->getCamera()->getRawMode(raw);
-	DEB_RETURN() << DEB_VAR1(raw);
-	return raw; 
 }
 
 void Eiger::CorrBase::prepareAcq()
@@ -65,13 +56,33 @@ void Eiger::CorrBase::prepareAcq()
 
 	FrameDim& recv_dim = m_eiger->m_recv_frame_dim;
 	m_mod_frame_dim = recv_dim * Point(1, 2);
-	m_frame_size = m_mod_frame_dim.getSize() * Point(1, m_nb_modules);
-	m_inter_lines.resize(m_nb_modules);
-	for (int i = 0; i < m_nb_modules - 1; ++i) {
+	m_frame_size = m_mod_frame_dim.getSize() * Point(1, m_nb_eiger_modules);
+	m_inter_lines.resize(m_nb_eiger_modules);
+	for (int i = 0; i < m_nb_eiger_modules - 1; ++i) {
 		m_inter_lines[i] = m_eiger->getInterModuleGap(i);
 		m_frame_size += Point(0, m_inter_lines[i]);
 	}
-	m_inter_lines[m_nb_modules - 1] = 0;
+	m_inter_lines[m_nb_eiger_modules - 1] = 0;
+}
+
+Eiger::PixelDepth4Corr::PixelDepth4Corr(Eiger *eiger)
+	: CorrBase(eiger), m_port_geom_list(eiger->m_port_geom_list)
+{
+	DEB_CONSTRUCTOR();
+}
+
+void Eiger::PixelDepth4Corr::prepareAcq()
+{
+	DEB_MEMBER_FUNCT();
+}
+
+void Eiger::PixelDepth4Corr::correctFrame(FrameType frame, void *ptr)
+{
+	DEB_MEMBER_FUNCT();
+
+	PortGeometryList::iterator it, end = m_port_geom_list.end();
+	for (it = m_port_geom_list.begin(); it != end; ++it)
+		(*it)->expandPixelDepth4(frame, (char *) ptr);
 }
 
 Eiger::InterModGapCorr::InterModGapCorr(Eiger *eiger)
@@ -90,10 +101,10 @@ void Eiger::InterModGapCorr::prepareAcq()
 
 	int mod_size = m_mod_frame_dim.getMemSize();
 	int width = m_mod_frame_dim.getSize().getWidth();
-	int dlw = width * m_mod_frame_dim.getDepth();
-	for (int i = 0, start = 0; i < m_nb_modules - 1; ++i) {
+	int ilw = width * m_mod_frame_dim.getDepth();
+	for (int i = 0, start = 0; i < m_nb_eiger_modules - 1; ++i) {
 		start += mod_size;
-		int size = m_inter_lines[i] * dlw;
+		int size = m_inter_lines[i] * ilw;
 		m_gap_list.push_back(Block(start, size));
 		start += size;
 	}
@@ -113,7 +124,7 @@ void Eiger::InterModGapCorr::correctFrame(FrameType frame, void *ptr)
 }
 
 Eiger::Correction::Correction(Eiger *eiger)
-	: m_corr_list(eiger->m_corr_list)
+	: m_eiger(eiger)
 {
 	DEB_CONSTRUCTOR();
 }
@@ -122,9 +133,7 @@ Data Eiger::Correction::process(Data& data)
 {
 	DEB_MEMBER_FUNCT();
 
-	CorrBase *corr = m_corr_list[0];
-	bool raw = corr->getRaw();
-	DEB_PARAM() << DEB_VAR4(data.frameNumber, raw, 
+	DEB_PARAM() << DEB_VAR3(data.frameNumber, 
 				_processingInPlaceFlag, data.data());
 	
 	Data ret = data;
@@ -137,13 +146,13 @@ Data Eiger::Correction::process(Data& data)
 		buffer->unref();
 	}
 
-	if (!raw) {
-		FrameType frame = ret.frameNumber;
-		void *ptr = ret.data();
-		CorrList::iterator it, end = m_corr_list.end();
-		for (it = m_corr_list.begin(); it != end; ++it)
-			(*it)->correctFrame(frame, ptr);
-	}
+	FrameType frame = ret.frameNumber;
+	void *ptr = ret.data();
+	CorrList& corr_list = m_eiger->m_corr_list;
+	CorrList::iterator it, end = corr_list.end();
+	for (it = corr_list.begin(); it != end; ++it)
+		(*it)->correctFrame(frame, ptr);
+
 	return ret;
 }
 
@@ -163,31 +172,40 @@ void Eiger::RecvPortGeometry::prepareAcq()
 	const FrameDim& frame_dim = m_eiger->m_recv_frame_dim;
 	const Size& size = frame_dim.getSize();
 	int depth = frame_dim.getDepth();
-	m_dlw = size.getWidth() * depth;
+	m_ilw = size.getWidth() * depth;
 	int recv_size = frame_dim.getMemSize();
 	m_port_offset = recv_size * m_recv_idx;	
 
+	m_pchips = HalfModuleChips / RecvPorts;
+	m_scw = ChipSize * depth;
+	m_dcw = m_scw;
+	if (m_eiger->isPixelDepth4())
+		m_scw /= 2;
+
 	m_eiger->getCamera()->getRawMode(m_raw);
 	if (m_raw) {
-		m_port_offset += ChipSize * m_dlw * m_port;
+		// vert. port concat.
+		m_port_offset += ChipSize * m_ilw * m_port;
 		return;
+	} else {
+		// inter-chip horz. gap
+		m_dcw += ChipGap * depth;
+		// horz. port concat.
+		m_port_offset += m_pchips * m_dcw * m_port;
 	}
 
 	int mod_idx = m_recv_idx / 2;
 	for (int i = 0; i < mod_idx; ++i)
-		m_port_offset += m_eiger->getInterModuleGap(i) * m_dlw;
+		m_port_offset += m_eiger->getInterModuleGap(i) * m_ilw;
 
 	if (m_top_half_recv) {
-		m_port_offset += (ChipSize - 1) * m_dlw;
-		m_dlw *= -1;
+		// top-half module: vert-flipped data
+		m_port_offset += (ChipSize - 1) * m_ilw;
+		m_ilw *= -1;
 	} else {
-		m_port_offset += (ChipGap / 2) * m_dlw;
+		// bottom-half module: inter-chip vert. gap
+		m_port_offset += (ChipGap / 2) * m_ilw;
 	}
-
-	m_plw = ChipSize * depth;
-	m_pchips = HalfModuleChips / RecvPorts;
-	m_clw = m_plw + ChipGap * depth;
-	m_port_offset += m_pchips * m_clw * m_port;
 }
 
 void Eiger::RecvPortGeometry::processRecvFileStart(uint32_t dsize)
@@ -208,11 +226,37 @@ void Eiger::RecvPortGeometry::processRecvPort(FrameType frame, char *dptr,
 		return;
 	}
 	
+	bool valid_data = (dptr != NULL);
 	char *src = dptr;
-	for (int i = 0; i < ChipSize; ++i, dest += m_dlw) {
+	char *dest = bptr + m_port_offset;	
+	for (int i = 0; i < ChipSize; ++i, dest += m_ilw) {
 		char *d = dest;
-		for (int j = 0; j < m_pchips; ++j, src += m_plw, d += m_clw)
-			memcpy(d, src, m_plw);
+		for (int j = 0; j < m_pchips; ++j, src += m_scw, d += m_dcw)
+			if (valid_data)
+				memcpy(d, src, m_scw);
+			else
+				memset(d, 0xff, m_scw);
+	}
+std::cout<< "Eiger::RecvPortGeometry::processRecvPort (2)" << std::endl;
+}
+
+void Eiger::RecvPortGeometry::expandPixelDepth4(FrameType frame, char *ptr)
+{
+	DEB_MEMBER_FUNCT();
+	DEB_PARAM() << DEB_VAR3(frame, m_recv_idx, m_port);
+
+	ptr += m_port_offset;
+	for (int i = 0; i < ChipSize; ++i, ptr += m_ilw) {
+		char *chip = ptr;
+		for (int j = 0; j < m_pchips; ++j, chip += m_dcw) {
+			char *src = chip + m_scw;
+			char *dest = chip + 2 * m_scw;
+			for (int k = 0; k < ChipSize / 2; ++k) {
+				unsigned char b = *--src;
+				*--dest = b >> 4;
+				*--dest = b & 0xf;
+			}
+		}
 	}
 }
 
@@ -248,7 +292,7 @@ void Eiger::getFrameDim(FrameDim& frame_dim, bool raw)
 	Size size = frame_dim.getSize();
 	size *= Point(1, m_nb_det_modules);
 	if (!raw)
-		for (int i = 0; i < m_nb_det_modules / 2 - 1; ++i)
+		for (int i = 0; i < getNbEigerModules() - 1; ++i)
 			size += Point(0, getInterModuleGap(i));
 	frame_dim.setSize(size);
 	DEB_RETURN() << DEB_VAR1(frame_dim);
@@ -259,16 +303,17 @@ void Eiger::getRecvFrameDim(FrameDim& frame_dim, bool raw, bool geom)
 	DEB_MEMBER_FUNCT();
 	DEB_PARAM() << DEB_VAR1(raw);
 	frame_dim.setImageType(getCamera()->getImageType());
-	Size chip_size(ChipSize, ChipSize);
+	
+	Size size(ChipSize * HalfModuleChips, ChipSize);
+
 	if (raw) {
-		int port_chips = HalfModuleChips / RecvPorts;
-		frame_dim.setSize(chip_size * Point(port_chips, RecvPorts));
-	} else {
-		Size size = chip_size * Point(HalfModuleChips, 2);
-		if (geom)
-			size += Point(ChipGap, ChipGap) * Point(3, 1);
-		frame_dim.setSize(size / Point(1, 2));
+		size /= Point(RecvPorts, 1);
+		size *= Point(1, RecvPorts);
+	} else if (geom) {
+		size += Point(ChipGap, ChipGap) * Point(3, 1) / Point(1, 2);
 	}
+	frame_dim.setSize(size);
+	
 	DEB_RETURN() << DEB_VAR1(frame_dim);
 }
 
@@ -277,7 +322,7 @@ string Eiger::getName()
 	DEB_MEMBER_FUNCT();
 	ostringstream os;
 	os << "PSI/Eiger-";
-	int nb_modules = m_nb_det_modules / 2;
+	int nb_modules = getNbEigerModules();
 	if (nb_modules == 1) {
 		os << "500k";
 	} else if (nb_modules % 2 == 0) {
@@ -392,11 +437,18 @@ void Eiger::updateImageSize()
 
 	removeAllCorr();
 
-	CorrBase *corr;
-	ImageType image_type = getCamera()->getImageType();
-	corr = createChipBorderCorr(image_type);
+	if (isPixelDepth4())
+		createPixelDepth4Corr();
 
-	if (corr->getNbModules() > 1)
+	bool raw;
+	getCamera()->getRawMode(raw);
+	if (raw)
+		return;
+
+	ImageType image_type = getCamera()->getImageType();
+	createChipBorderCorr(image_type);
+
+	if (getNbEigerModules() > 1)
 		createInterModGapCorr();
 }
 
@@ -494,29 +546,28 @@ void Eiger::prepareAcq()
 	
 	DEB_TRACE() << DEB_VAR2(raw, m_recv_frame_dim);
 
-	for (int i = 0; i < m_nb_det_modules * RecvPorts; ++i)
-		m_port_geom_list[i]->prepareAcq();
+	PortGeometryList::iterator git, gend = m_port_geom_list.end();
+	for (git = m_port_geom_list.begin(); git != gend; ++git)
+		(*git)->prepareAcq();
 
-	CorrList::iterator it, end = m_corr_list.end();
-	for (it = m_corr_list.begin(); it != end; ++it)
-		(*it)->prepareAcq();
+	CorrList::iterator cit, cend = m_corr_list.end();
+	for (cit = m_corr_list.begin(); cit != cend; ++cit)
+		(*cit)->prepareAcq();
 }
 
-void Eiger::processRecvFileStart(int recv_idx, uint32_t dsize)
+void Eiger::processRecvFileStart(int port_idx, uint32_t dsize)
 {
 	DEB_MEMBER_FUNCT();
-	DEB_PARAM() << DEB_VAR2(recv_idx, dsize);
-	for (int i = 0; i < RecvPorts; ++i) {
-		int port_idx = getPortIndex(recv_idx, i);
-		m_port_geom_list[port_idx]->processRecvFileStart(dsize);
-	}
+	DEB_PARAM() << DEB_VAR2(port_idx, dsize);
+	m_port_geom_list[port_idx]->processRecvFileStart(dsize);
 }
 
-void Eiger::processRecvPort(int recv_idx, FrameType frame, int port, char *dptr, 
-			    uint32_t dsize, Mutex& lock, char *bptr)
+void Eiger::processRecvPort(int port_idx, FrameType frame, char *dptr, 
+			    uint32_t dsize, char *bptr)
 {
 	DEB_MEMBER_FUNCT();
-	int port_idx = getPortIndex(recv_idx, port);
+	DEB_PARAM() << DEB_VAR3(port_idx, frame, dsize);
+	
 	m_port_geom_list[port_idx]->processRecvPort(frame, dptr, bptr);
 }
 
@@ -524,6 +575,15 @@ Eiger::Correction *Eiger::createCorrectionTask()
 {
 	DEB_MEMBER_FUNCT();
 	return new Correction(this);
+}
+
+Eiger::CorrBase *Eiger::createPixelDepth4Corr()
+{
+	DEB_MEMBER_FUNCT();
+	CorrBase *pd4_corr = new PixelDepth4Corr(this);
+	addCorr(pd4_corr);
+	DEB_RETURN() << DEB_VAR1(pd4_corr);
+	return pd4_corr;
 }
 
 Eiger::CorrBase *Eiger::createChipBorderCorr(ImageType image_type)
@@ -604,7 +664,7 @@ double Eiger::getBorderCorrFactor(int det, int line)
 int Eiger::getInterModuleGap(int det)
 {
 	DEB_MEMBER_FUNCT();
-	if (det >= (m_nb_det_modules / 2) - 1)
+	if (det >= getNbEigerModules() - 1)
 		THROW_HW_ERROR(InvalidValue) << "Invalid " << DEB_VAR1(det);
 	return 36;
 }

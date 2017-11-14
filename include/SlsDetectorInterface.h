@@ -162,6 +162,9 @@ class Interface : public HwInterface
 
 	void resetDefaults();
 
+	Camera& getCamera(){ return m_cam; }
+	const Camera& getCamera() const { return m_cam; }
+	
  private:
 	Camera& m_cam;
 
